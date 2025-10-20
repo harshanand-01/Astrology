@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Akasho_Vani - Your Portal to Astrological Wisdom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        :root {
+            --cosmic-purple: #2A0A4A;
+            --star-blue: #1A1A4D;
+            --galaxy-teal: #0A4A5A;
+            --celestial-gold: #FFD700;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #000000, #1A1A4D);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .star-bg {
+            background-image: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ddc35525-a144-4b89-a543-27109dc10ee6.png');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .zodiac-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .glow {
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-black bg-opacity-80 backdrop-blur-md fixed w-full z-10">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <div class="text-2xl font-bold title-font text-yellow-200 glow">
+                Akasho_Vani
+            </div>
+            <div id="mobile-menu" class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-yellow-200 transition duration-300">Home</a>
+                <a href="#horoscope" class="text-white hover:text-yellow-200 transition duration-300">Horoscopes</a>
+                <a href="#zodiac" class="text-white hover:text-yellow-200 transition duration-300">Zodiac Signs</a>
+                <a href="#calculator" class="text-white hover:text-yellow-200 transition duration-300">Birth Chart</a>
+                <a href="#products" class="text-white hover:text-yellow-200 transition duration-300">Shop</a>
+                <a href="#about" class="text-white hover:text-yellow-200 transition duration-300">About</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+    <section id="home" class="star-bg h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="container mx-auto px-6 z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold title-font mb-6 text-yellow-200 glow">Akasho_Vani</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Unlock the secrets of the stars and discover your celestial path with personalized astrological guidance.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#horoscope" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">Get Daily Horoscope</a>
+                <a href="#calculator" class="bg-transparent hover:bg-white hover:bg-opacity-10 text-white font-bold py-3 px-6 border-2 border-yellow-500 rounded-full transition duration-300 transform hover:scale-105">Calculate Birth Chart</a>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full z-0">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6551e8fd-52a2-48a2-8025-7603fd4f9a5a.png" alt="Abstract cosmic pattern with swirling constellations and celestial bodies" class="w-full opacity-50">
+        </div>
+    </section>
+
+    <section id="horoscope" class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold title-font mb-12 text-center text-yellow-200 glow">Daily Horoscope</h2>
+            
+            <div class="bg-gray-800 bg-opacity-50 rounded-xl p-8 mb-12 backdrop-blur-md border border-gray-700">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-full md:w-1/3 flex justify-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e629df08-98b1-4f21-beeb-799fe8a17e2e.png" alt="Circular zodiac wheel with all twelve signs arranged around a celestial center point" class="rounded-2xl w-full max-w-xs floating">
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h3 class="text-2xl font-bold mb-4">Your Sign's Forecast for Today</h3>
+                        <div class="mb-6">
+                            <label for="zodiac-sign" class="block mb-2 text-sm font-medium">Select Your Zodiac Sign</label>
+                            <select id="zodiac-sign" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5">
+                                <option value="" disabled selected>Choose your sign</option>
+                                <option value="aries">Aries (Mar 21 - Apr 19)</option>
+                                <option value="taurus">Taurus (Apr 20 - May 20)</option>
+                                <option value="gemini">Gemini (May 21 - Jun 20)</option>
+                                <option value="cancer">Cancer (Jun 21 - Jul 22)</option>
+                                <option value="leo">Leo (Jul 23 - Aug 22)</option>
+                                <option value="virgo">Virgo (Aug 23 - Sep 22)</option>
+                                <option value="libra">Libra (Sep 23 - Oct 22)</option>
+                                <option value="scorpio">Scorpio (Oct 23 - Nov 21)</option>
+                                <option value="sagittarius">Sagittarius (Nov 22 - Dec 21)</option>
+                                <option value="capricorn">Capricorn (Dec 22 - Jan 19)</option>
+                                <option value="aquarius">Aquarius (Jan 20 - Feb 18)</option>
+                                <option value="pisces">Pisces (Feb 19 - Mar 20)</option>
+                            </select>
+                        </div>
+                        <button onclick="generateHoroscope()" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded transition duration-300">Generate Horoscope</button>
+                        <div id="horoscope-result" class="mt-6 p-4 bg-gray-700 bg-opacity-70 rounded-lg hidden">
+                            <h4 class="text-xl font-semibold mb-2" id="horoscope-title"></h4>
+                            <p class="text-gray-300" id="horoscope-content"></p>
+                            <p class="mt-2 text-sm text-yellow-300" id="horoscope-lucky"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="zodiac" class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold title-font mb-12 text-center text-yellow-200 glow">The Zodiac Signs</h2>
+            <p class="text-center max-w-3xl mx-auto mb-16 text-gray-300">The zodiac is divided into twelve signs, each representing distinct personality traits and characteristics. Explore your sign to learn more about your astrological identity.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="zodiac-card bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-500 transition duration-300">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b4bba3b3-807e-4ea7-8e5d-7123284a6383.png" alt="Ram symbol representing Aries zodiac sign with fiery orange background" class="w-full h-48 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-16"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold">Aries</h3>
+                            <p class="text-sm text-yellow-300">March 21 - April 19</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm text-gray-400">Fire Sign</span>
+                            <span class="text-sm px-2 py-1 bg-yellow-500 bg-opacity-20 text-yellow-300 rounded">Cardinal</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">The bold and adventurous trailblazer. Aries are known for their courage, determination, and competitive spirit.</p>
+                        <div class="text-sm text-gray-400">
+                            <div class="flex items-center mb-1"><span class="w-20">Ruling Planet:</span> <span class="text-yellow-300">Mars</span></div>
+                            <div class="flex items-center"><span class="w-20">Element:</span> <span class="text-yellow-300">Fire</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="zodiac-card bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-500 transition duration-300">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cfc82f7e-ac17-470a-9ee2-bc69dfb60f75.png" alt="Bull symbol representing Taurus zodiac sign with earthy green background" class="w-full h-48 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-16"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold">Taurus</h3>
+                            <p class="text-sm text-yellow-300">April 20 - May 20</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm text-gray-400">Earth Sign</span>
+                            <span class="text-sm px-2 py-1 bg-yellow-500 bg-opacity-20 text-yellow-300 rounded">Fixed</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">The sensual and persistent provider. Taurus values stability, comfort, and the finer things in life.</p>
+                        <div class="text-sm text-gray-400">
+                            <div class="flex items-center mb-1"><span class="w-20">Ruling Planet:</span> <span class="text-yellow-300">Venus</span></div>
+                            <div class="flex items-center"><span class="w-20">Element:</span> <span class="text-yellow-300">Earth</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="zodiac-card bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-500 transition duration-300">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/171e13dd-4235-4bef-8cef-9d7c00bbc7a7.png" alt="Twins symbol representing Gemini zodiac sign with airy yellow background" class="w-full h-48 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-16"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold">Gemini</h3>
+                            <p class="text-sm text-yellow-300">May 21 - June 20</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm text-gray-400">Air Sign</span>
+                            <span class="text-sm px-2 py-1 bg-yellow-500 bg-opacity-20 text-yellow-300 rounded">Mutable</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">The quick-witted and curious communicator. Gemini thrives on mental stimulation and social interaction.</p>
+                        <div class="text-sm text-gray-400">
+                            <div class="flex items-center mb-1"><span class="w-20">Ruling Planet:</span> <span class="text-yellow-300">Mercury</span></div>
+                            <div class="flex items-center"><span class="w-20">Element:</span> <span class="text-yellow-300">Air</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="zodiac-card bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-500 transition duration-300">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/aa00dedd-f0cc-41f1-bb29-8adbbc8ec9f0.png" alt="Crab symbol representing Cancer zodiac sign with watery blue background" class="w-full h-48 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-16"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold">Cancer</h3>
+                            <p class="text-sm text-yellow-300">June 21 - July 22</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm text-gray-400">Water Sign</span>
+                            <span class="text-sm px-2 py-1 bg-yellow-500 bg-opacity-20 text-yellow-300 rounded">Cardinal</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">The nurturing and intuitive protector. Cancer is deeply emotional and values home, family, and emotional security.</p>
+                        <div class="text-sm text-gray-400">
+                            <div class="flex items-center mb-1"><span class="w-20">Ruling Planet:</span> <span class="text-yellow-300">Moon</span></div>
+                            <div class="flex items-center"><span class="w-20">Element:</span> <span class="text-yellow-300">Water</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-6 py-3 border-2 border-yellow-500 text-yellow-300 font-medium rounded-full hover:bg-yellow-500 hover:bg-opacity-10 transition duration-300">View All Zodiac Signs</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-20 bg-gradient-to-b from-gray-900 to-gray-900"> <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-gray-800 bg-opacity-50 rounded-xl p-8 backdrop-blur-md border border-gray-700">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Create Your Natal Chart</h3>
+                        <p class="text-gray-300 mb-6">Enter your birth details to generate a personalized natal chart that reveals the positions of the planets at your exact time of birth.</p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Birth Date</label>
+                                <input id="birth-date" type="date" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2.5 text-white focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Birth Time</label>
+                                <input id="birth-time" type="time" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2.5 text-white focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Birth Location</label>
+                                <input id="birth-location" type="text" placeholder="City, Country" class="w-full bg-gray-700 border border-gray-600 rounded-lg p-2.5 text-white focus:ring-yellow-500 focus:border-yellow-500">
+                            </div>
+                        </div>
+                        
+                        <button onclick="calculateChart()" class="mt-6 w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-4 rounded transition duration-300">Calculate My Birth Chart</button>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3b63a37c-d32f-41fe-8e88-72e82178695b.png" alt="Circular natal chart diagram with planetary positions and zodiac wheel" class="rounded-xl w-full max-w-md floating">
+                    </div>
+                </div>
+
+                <div id="chart-result" class="mt-8 pt-8 border-t border-gray-700 text-center hidden">
+                    <h3 class="text-3xl font-bold title-font text-yellow-200 glow mb-4">Your Natal Chart</h3>
+                    <p class="text-gray-300 mb-6">Here is a visual representation of your natal chart. For a real chart, this would show the precise planetary positions at your time of birth.</p>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3b63a37c-d32f-41fe-8e88-72e82178695b.png" alt="Generated Natal Chart" class="mx-auto rounded-full w-full max-w-sm border-4 border-yellow-500 shadow-lg shadow-yellow-500/20">
+                    <div class="mt-6 p-4 bg-gray-900 bg-opacity-50 rounded-lg">
+                        <h4 class="text-xl font-semibold mb-2">Key Placements</h4>
+                        <p class="text-gray-400"><strong>Sun:</strong> Leo | <strong>Moon:</strong> Sagittarius | <strong>Ascendant:</strong> Libra</p>
+                        <p class="text-sm mt-4 text-gray-500">Contact Astrologer For Better Report</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold title-font mb-12 text-center text-yellow-200 glow">Our Celestial Shop</h2>
+            <p class="text-center max-w-3xl mx-auto mb-16 text-gray-300">Enhance your spiritual journey with our curated selection of astrological reports, tools, and mystical items.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="zodiac-card bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-500 transition duration-300">
+                    <img src="./Product 1.jpg" alt="Personalized Natal Chart Reading" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold title-font mb-2">Laxmi Kuber Kit</h3>
+                        <p class="text-gray-300 mb-4 h-24">A Full Kit Of Laxmi And Kuber</p>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-2xl font-bold text-yellow-300 glow">₹249.00</span>
+                            <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-105">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="zodiac-card bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-500 transition duration-300">
+    <img src="./product 2.jpg" alt="Laxmi Kuber Photo for prosperity" class="w-full h-56 object-cover border-2 border-yellow-500 shadow-md shadow-yellow-500/30">
+    <div class="p-6">
+        <h3 class="text-2xl font-bold title-font mb-2">Laxmi Kuber Photo</h3>
+        <p class="text-gray-300 mb-4 h-24">A sacred image of Goddess Laxmi and Lord Kuber, believed to bring wealth and prosperity.</p>
+        <div class="flex justify-between items-center mt-4">
+            <span class="text-2xl font-bold text-yellow-300 glow">₹149.00</span>
+            <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-105">Book Now</a>
+        </div>
+    </div>
+</div>
+
+                <div class="zodiac-card bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-yellow-500 transition duration-300">
+                    <img src="./product 3.jpg" alt="Zodiac Crystal Set" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold title-font mb-2">Bandhan Dosh Protection Yantra</h3>
+                        <p class="text-gray-300 mb-4 h-24">A Yantra To Remove Your Bandhan Dosh</p>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-2xl font-bold text-yellow-300 glow">₹499.00</span>
+                            <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-105">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section id="about" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold title-font mb-6 text-yellow-200 glow">About Akasho_Vani</h2>
+                <p class="text-xl text-gray-300 mb-8">Akasho_Vani is dedicated to making astrology accessible and meaningful for everyone. Our team of experienced astrologers combines ancient wisdom with modern interpretations to provide personalized astrological guidance.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                        <div class="w-16 h-16 bg-yellow-500 bg-opacity-20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Timely Guidance</h3>
+                        <p class="text-gray-400">Daily and weekly horoscopes updated with current planetary transits.</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                        <div class="w-16 h-16 bg-yellow-500 bg-opacity-20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Celestial Wisdom</h3>
+                        <p class="text-gray-400">Deep insights into your natal chart and planetary influences.</p>
+                    </div>
+                    <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                        <div class="w-16 h-16 bg-yellow-500 bg-opacity-20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Universal Connection</h3>
+                        <p class="text-gray-400">Understand your place in the cosmos and how it relates to your life path.</p>
+                    </div>
+                </div>
+                
+                <a href="./About.html" class="inline-block px-6 py-3 border-2 border-yellow-500 text-yellow-300 font-medium rounded-full hover:bg-yellow-500 hover:bg-opacity-10 transition duration-300">Learn More About Our Approach</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold title-font mb-4 text-yellow-200">Akasho_Vani</h3>
+                    <p class="text-gray-400 mb-4">Your trusted guide to celestial wisdom and astrological insight since 2023.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">Horoscopes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">Zodiac Signs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">Birth Chart</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">Astrology Basics</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">Planetary Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">Compatibility</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">Moon Phases</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-300 transition duration-300">Retrogrades</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">hello@cosmicinsight.com</li>
+                        <li class="text-gray-400">+1 (555) 123-4567</li>
+                        <li class="text-gray-400">123 Astro Lane<br>Cosmic City, Universe 90210</li>
+                    </ul>
+                </div>
+<script>
+        // ===================================
+        // MOBILE MENU FUNCTIONALITY
+        // ===================================
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            // This will add the 'hidden' class if it's not there, 
+            // and remove it if it is. Perfect for a toggle.
+            mobileMenu.classList.toggle('hidden');
+        });
+
+
+        // ===================================
+        // HOROSCOPE GENERATOR FUNCTIONALITY
+        // ===================================
+        const horoscopes = {
+            aries: {
+                title: "Aries Horoscope",
+                content: "Today is a day for bold action. Your energy is high, so channel it into a project you're passionate about. Avoid impulsive decisions in financial matters.",
+                lucky: "Lucky Number: 7, Lucky Color: Red"
+            },
+            taurus: {
+                title: "Taurus Horoscope",
+                content: "Patience is your greatest virtue today. Focus on steady progress rather than quick wins. A moment of quiet reflection will bring you clarity.",
+                lucky: "Lucky Number: 5, Lucky Color: Green"
+            },
+            gemini: {
+                title: "Gemini Horoscope",
+                content: "Your communication skills are at their peak. It's a great day for important conversations, both personal and professional. Listen as much as you speak.",
+                lucky: "Lucky Number: 3, Lucky Color: Yellow"
+            },
+            cancer: {
+                title: "Cancer Horoscope",
+                content: "Your intuition is your guide today. Pay attention to your feelings about people and situations. A cozy evening at home will recharge you.",
+                lucky: "Lucky Number: 2, Lucky Color: Silver"
+            },
+            leo: {
+                title: "Leo Horoscope",
+                content: "Your natural charisma shines brightly. It's a perfect day for socializing and leading others. Share your generous spirit and you'll be rewarded.",
+                lucky: "Lucky Number: 1, Lucky Color: Gold"
+            },
+            virgo: {
+                title: "Virgo Horoscope",
+                content: "Focus on the details. A meticulous approach will help you solve a lingering problem. Organizing your space can bring mental clarity.",
+                lucky: "Lucky Number: 6, Lucky Color: Navy Blue"
+            },
+            libra: {
+                title: "Libra Horoscope",
+                content: "Harmony is your goal today. Seek balance in your relationships and avoid conflict. An appreciation for art or music will lift your spirits.",
+                lucky: "Lucky Number: 9, Lucky Color: Pink"
+            },
+            scorpio: {
+                title: "Scorpio Horoscope",
+                content: "Your focus is intense and powerful. Use this energy for deep research or to uncover a hidden truth. Trust your instincts completely.",
+                lucky: "Lucky Number: 4, Lucky Color: Black"
+            },
+            sagittarius: {
+                title: "Sagittarius Horoscope",
+                content: "Adventure calls to you. Break your routine and try something new. Your optimism is contagious and will inspire those around you.",
+                lucky: "Lucky Number: 3, Lucky Color: Purple"
+            },
+            capricorn: {
+                title: "Capricorn Horoscope",
+                content: "Your hard work is paying off. It's a good day for long-term planning and professional ambitions. Discipline will lead to success.",
+                lucky: "Lucky Number: 8, Lucky Color: Brown"
+            },
+            aquarius: {
+                title: "Aquarius Horoscope",
+                content: "Your innovative ideas are needed. Think outside the box and share your unique perspective. Connecting with your community will be fulfilling.",
+                lucky: "Lucky Number: 11, Lucky Color: Electric Blue"
+            },
+            pisces: {
+                title: "Pisces Horoscope",
+                content: "Your intuition is sharp today. Trust your gut feelings, especially in creative endeavors. Connect with nature to recharge your spirit.",
+                lucky: "Lucky Number: 11, Lucky Color: Sea Green"
+            }
+        };
+
+        function generateHoroscope() {
+            const selectedSign = document.getElementById('zodiac-sign').value;
+            const resultDiv = document.getElementById('horoscope-result');
+            const titleEl = document.getElementById('horoscope-title');
+            const contentEl = document.getElementById('horoscope-content');
+            const luckyEl = document.getElementById('horoscope-lucky');
+
+            if (selectedSign && horoscopes[selectedSign]) {
+                const horoscopeData = horoscopes[selectedSign];
+                titleEl.textContent = horoscopeData.title;
+                contentEl.textContent = horoscopeData.content;
+                luckyEl.textContent = horoscopeData.lucky;
+                resultDiv.classList.remove('hidden');
+            } else {
+                alert("Please select your zodiac sign!");
+            }
+        }
+
+
+        // ===================================
+        // BIRTH CHART CALCULATOR FUNCTIONALITY
+        // ===================================
+        function calculateChart() {
+            const birthDate = document.getElementById('birth-date').value;
+            const birthTime = document.getElementById('birth-time').value;
+            const birthLocation = document.getElementById('birth-location').value;
+
+            if (!birthDate || !birthTime || !birthLocation) {
+                alert("Please fill in all birth details to generate your chart.");
+                return;
+            }
+
+            const resultDiv = document.getElementById('chart-result');
+            resultDiv.classList.remove('hidden');
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>
